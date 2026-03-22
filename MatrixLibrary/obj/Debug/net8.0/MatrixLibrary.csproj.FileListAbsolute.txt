@@ -1,0 +1,11 @@
+D:\Visual Studio\C#\MatrixLibrary\MatrixLibrary\bin\Debug\net8.0\MatrixLibrary.deps.json
+D:\Visual Studio\C#\MatrixLibrary\MatrixLibrary\bin\Debug\net8.0\MatrixLibrary.dll
+D:\Visual Studio\C#\MatrixLibrary\MatrixLibrary\bin\Debug\net8.0\MatrixLibrary.pdb
+D:\Visual Studio\C#\MatrixLibrary\MatrixLibrary\obj\Debug\net8.0\MatrixLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\Visual Studio\C#\MatrixLibrary\MatrixLibrary\obj\Debug\net8.0\MatrixLibrary.AssemblyInfoInputs.cache
+D:\Visual Studio\C#\MatrixLibrary\MatrixLibrary\obj\Debug\net8.0\MatrixLibrary.AssemblyInfo.cs
+D:\Visual Studio\C#\MatrixLibrary\MatrixLibrary\obj\Debug\net8.0\MatrixLibrary.csproj.CoreCompileInputs.cache
+D:\Visual Studio\C#\MatrixLibrary\MatrixLibrary\obj\Debug\net8.0\MatrixLibrary.dll
+D:\Visual Studio\C#\MatrixLibrary\MatrixLibrary\obj\Debug\net8.0\refint\MatrixLibrary.dll
+D:\Visual Studio\C#\MatrixLibrary\MatrixLibrary\obj\Debug\net8.0\MatrixLibrary.pdb
+D:\Visual Studio\C#\MatrixLibrary\MatrixLibrary\obj\Debug\net8.0\ref\MatrixLibrary.dll
