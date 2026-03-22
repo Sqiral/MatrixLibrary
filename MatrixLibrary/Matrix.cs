@@ -160,5 +160,54 @@ namespace MatrixLibrary
 
             return hash.ToHashCode();
         }
+
+        public static Matrix<T> operator +(Matrix<T> matrix1, Matrix<T> matrix2)
+        {
+            ArgumentNullException.ThrowIfNull(matrix1, $"Parameter {nameof(matrix1)} can't be null.");
+            ArgumentNullException.ThrowIfNull(matrix2, $"Parameter {nameof(matrix2)} can't be null.");
+
+            if (matrix1.RowsCount != matrix2.RowsCount || matrix1.ColumnsCount != matrix2.ColumnsCount)
+                throw new InvalidOperationException("Matrix dimensions must match for subtraction.");
+
+            return MatrixController.Sum(matrix1, matrix2);
+        }
+
+        public static Matrix<T> operator -(Matrix<T> matrix1, Matrix<T> matrix2)
+        {
+            ArgumentNullException.ThrowIfNull(matrix1, $"Parameter {nameof(matrix1)} can't be null.");
+            ArgumentNullException.ThrowIfNull(matrix2, $"Parameter {nameof(matrix2)} can't be null.");
+
+            if (matrix1.RowsCount != matrix2.RowsCount || matrix1.ColumnsCount != matrix2.ColumnsCount)
+                throw new InvalidOperationException("Matrix dimensions must match for subtraction.");
+
+            return MatrixController.Difference(matrix1, matrix2);
+        }
+
+        public static Matrix<T> operator *(Matrix<T> matrix1, Matrix<T> matrix2)
+        {
+            ArgumentNullException.ThrowIfNull(matrix1, $"Parameter {nameof(matrix1)} can't be null.");
+            ArgumentNullException.ThrowIfNull(matrix2, $"Parameter {nameof(matrix2)} can't be null.");
+
+            if (matrix1.ColumnsCount != matrix2.RowsCount)
+                throw new InvalidOperationException($"The number of columns in the first matrix ({matrix1.ColumnsCount})" +
+                    $" must be equal to the number of rows in the second matrix ({matrix2.RowsCount}).");
+
+            return MatrixController.Multiply(matrix1, matrix2);
+        }
+
+        public static Matrix<T> operator *(Matrix<T> matrix, T scalar)
+        {
+            ArgumentNullException.ThrowIfNull(matrix, $"Parameter {nameof(matrix)} can't be null.");
+
+            return MatrixController.Multiply(matrix, scalar);
+        }
+
+        public static Matrix<T> operator *(T scalar, Matrix<T> matrix)
+        {
+            ArgumentNullException.ThrowIfNull(matrix, $"Parameter {nameof(matrix)} can't be null.");
+
+            return MatrixController.Multiply(matrix, scalar);
+        }
+
     }
 }

@@ -7,11 +7,6 @@ namespace MatrixLibrary
 {
     public static class MatrixController
     {
-        public static void Show<T>(Matrix<T> matrix) where T : INumber<T>
-        {
-            Console.Write(matrix.ToString());
-        }
-
         public static void FillFromFile<T>(Matrix<T> matrix, string filePath, CultureInfo? culture = null) where T : INumber<T>
         {
             ArgumentNullException.ThrowIfNull(matrix, $"Parameter {nameof(matrix)} can't be null.");
@@ -88,7 +83,7 @@ namespace MatrixLibrary
             ArgumentNullException.ThrowIfNull(matrix2, $"Parameter {nameof(matrix2)} can't be null.");
 
             if (matrix1.RowsCount != matrix2.RowsCount || matrix1.ColumnsCount != matrix2.ColumnsCount)
-                throw new InvalidOperationException();
+                throw new InvalidOperationException("Matrix dimensions must match for subtraction.");
 
             int rowsCount = matrix1.RowsCount;
             int columnsCount = matrix1.ColumnsCount;
@@ -111,7 +106,7 @@ namespace MatrixLibrary
             ArgumentNullException.ThrowIfNull(matrix2, $"Parameter {nameof(matrix2)} can't be null.");
 
             if (matrix1.RowsCount != matrix2.RowsCount || matrix1.ColumnsCount != matrix2.ColumnsCount)
-                throw new InvalidOperationException();
+                throw new InvalidOperationException("Matrix dimensions must match for subtraction.");
 
             int rowsCount = matrix1.RowsCount;
             int columnsCount = matrix1.ColumnsCount;
@@ -201,6 +196,26 @@ namespace MatrixLibrary
                 }
             }
             return resultMatrix;
+        }
+
+        public static Matrix<T> Multiply<T>(Matrix<T> matrix, T scalar) where T: INumber<T>
+        {
+            ArgumentNullException.ThrowIfNull(matrix, $"Parameter {nameof(matrix)} can't be null.");
+
+            int rowsCount = matrix.RowsCount;
+            int columnsCount = matrix.ColumnsCount;
+
+            Matrix<T> result = new Matrix<T>(rowsCount,  columnsCount);
+
+            for(int i = 0; i < rowsCount;i++)
+            {
+                for (int j = 0;j < columnsCount;j++)
+                {
+                    result[i,j] = matrix[i,j]*scalar;
+                }
+            }
+
+            return result;
         }
 
         public static Matrix<T> Exponentiation<T>(Matrix<T> matrix, int degree) where T: INumber<T>
